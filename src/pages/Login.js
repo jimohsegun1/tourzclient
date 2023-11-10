@@ -29,6 +29,11 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  // 1089079903400-h6dus35m8hhutbrmqeb3t7snh5ft6k88.apps.googleusercontent.com
+
+  const devEnv = process.env.NODE_ENV !== "production";
+clientId = devEnv ? "1089079903400-6r4bcs3kkb78bbn14dekkcf2nm3e4i3a.apps.googleusercontent.com" : "1089079903400-h6dus35m8hhutbrmqeb3t7snh5ft6k88.apps.googleusercontent.com";
+
   useEffect(() => {
     error && toast.error(error);
   }, [error]);
@@ -111,7 +116,7 @@ const Login = () => {
           </MDBValidation>
           <br />
           <GoogleLogin
-            clientId="1089079903400-6r4bcs3kkb78bbn14dekkcf2nm3e4i3a.apps.googleusercontent.com"
+            clientId={clientId}
             render={(renderProps) => (
               <MDBBtn
                 style={{ width: "100%" }}
